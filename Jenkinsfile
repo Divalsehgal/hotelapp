@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Test') { 
             steps {
-                sh "setfacl -m u:jenkins:rwx  /home/nineleaps/.jenkins/workspace/"
+                sh "chown -R nineleaps jenkins /home/nineleaps/.jenkins/workspace/"
                 sh './jenkins/scripts/test.sh' 
             }
         }
