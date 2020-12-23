@@ -16,6 +16,7 @@ pipeline {
         }
         stage('Test') { 
             steps {
+                sh "chown -R  jenkins:rwx /home/nineleaps/.jenkins/workspace/"
                 sh './jenkins/scripts/test.sh' 
             }
         }
