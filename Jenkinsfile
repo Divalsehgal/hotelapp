@@ -17,7 +17,8 @@ pipeline {
         stage('Test') { 
             steps {
                 // sh "chown -R  jenkins /home/nineleaps/.jenkins/workspace/"
-                sh 'npm test' 
+                sh 'make check || true' 
+                sh './jenkins/scripts/test.sh' 
             }
         }
     }
