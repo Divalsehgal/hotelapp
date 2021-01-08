@@ -20,25 +20,19 @@ pipeline {
                 git url: 'https://github.com/Divalsehgal/hotelapp.git'
             }
         }
-        stage('build & SonarQube analysis') {
-            agent any
+        stage('Sonarqube') {
+            environment {
+                scannerHome = tool 'SonarScanner4.2'
+            }
             steps {
-                script {
-                    scannerHome = tool 'SonarScanner4.2'
-                }
                 withSonarQubeEnv('SonarQube') {
-                    echo "${scannerHome}"
                     sh "${scannerHome}"
                 }
+                timeout(time: 10, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+                }
             }
         }
-
-        stage('Quality gate') {
-            steps {
-                waitForQualityGate abortPipeline: true
-            }
-        }
-
         stage('Test') {
             steps {
                 sh './jenkins/scripts/test.sh'
