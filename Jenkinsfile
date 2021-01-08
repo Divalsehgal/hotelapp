@@ -21,7 +21,10 @@ pipeline {
         //         }
         //     }
         // }
+   
 
+
+   
         stage('SCM') {
             git 'https://github.com/Divalsehgal/hotelapp.git'
         }
