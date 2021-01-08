@@ -1,1 +1,1 @@
- /home/nineleaps/.jenkins/tools/hudson.plugins.sonar.narRunnerInstallation/SonarScanner4.2/bin/sonar-scanner
+ /home/nineleaps/.jenkins/tools/hudson.plugins.sonar.narRunnerInstallation/SonarScanner4.2/bin/sonar-scanner -Dorg.jenkinsci.plugins.durabletask.BourneShellScript.LAUNCH_DIAGNOSTICS=true
