@@ -19,7 +19,6 @@
 .env.production
 
 .vscode/
-nginx/default.conf
 
 npm-debug.log*
 yarn-debug.log*
