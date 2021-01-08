@@ -6,6 +6,9 @@
         },
         "NglParseError": {
             "enabled": false
+        },
+        "VariableTypeRequired": {
+            "enabled": false
         }
     }
 }

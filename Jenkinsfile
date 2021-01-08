@@ -23,7 +23,8 @@ pipeline {
         stage('build & SonarQube analysis') {
             agent any
             steps {
-                def scannerHome = tool 'SonarScanner 4.0'
+                /* groovylint-disable-next-line NoDef */
+                def scannerHome = tool 'SonarScanner4'
                 withSonarQubeEnv('My SonarQube Server') {
                     sh "${scannerHome}/bin/sonar-scanner"
                 }
