@@ -14,24 +14,32 @@ pipeline {
                 sh 'npm install'
             }
         }
-        stage('Code Quality Check via SonarQube') {
+        // stage('Code Quality Check via SonarQube') {
+        //     steps {
+        //         script {
+        //             sh '~/Downloads/sonar-scanner-4.2.0.1873-linux/bin/sonar-scanner'
+        //         }
+        //     }
+        // }
+
+      stage('Clone sources') {
             steps {
-                script {
-                    sh '~/Downloads/sonar-scanner-4.2.0.1873-linux/bin/sonar-scanner'
+                git url: 'https://github.com/Divalsehgal/hotelapp.git'
+            }
+        }
+        stage('SonarQube analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    sh "./gradlew sonarqube"
                 }
             }
         }
-
-        // stage('SCM') {
-        //     git 'https://github.com/Divalsehgal/hotelapp.git'
-        // }
-        // stage('SonarQube analysis') {
-        //     def scannerHome = tool 'SonarScanner 4.0'
-        //     withSonarQubeEnv('http://0140c8dbf78e.ngrok.io/sonarqube-webhook/') {
-        //         // If you have configured more than one global server connection, you can specify its name
-        //         sh "${scannerHome}/bin/sonar-scanner"
-        //     }
-        // }
+        stage("Quality gate") {
+            steps {
+                waitForQualityGate abortPipeline: true
+            }
+        }
+    }
 
         stage('Test') {
             steps {
