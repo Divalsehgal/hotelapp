@@ -1,0 +1,1 @@
+ /home/nineleaps/.jenkins/tools/hudson.plugins.sonar.narRunnerInstallation/SonarScanner4.2/bin/sonar-scanner

@@ -28,7 +28,8 @@ pipeline {
                 }
                 withSonarQubeEnv('SonarQube') {
                     echo "${scannerHome}"
-                    sh "${scannerHome}/bin/sonar-scanner"
+                    sh "./jenkins/scripts/sonar.sh"
+                    // sh "${scannerHome}/bin/sonar-scanner"
                 }
             }
         }
