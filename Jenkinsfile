@@ -27,6 +27,7 @@ pipeline {
                     scannerHome = tool 'SonarScanner4'
                 }
                 withSonarQubeEnv('SonarQube') {
+                    echo "${scannerHome}"
                     sh "${scannerHome}/bin/sonar-scanner"
                 }
             }
