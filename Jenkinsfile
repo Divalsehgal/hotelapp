@@ -28,7 +28,7 @@ pipeline {
                 }
                 withSonarQubeEnv('SonarQube') {
                     echo "${scannerHome}"
-                    sh "${scannerHome}/bin/sonar-scanner"
+                    sh 'sh /home/nineleaps/.jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarScanner4/bin/sonar-scanner'
                 }
             }
         }
