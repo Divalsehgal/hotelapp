@@ -14,19 +14,21 @@ pipeline {
                 sh 'npm install'
             }
         }
-        // stage('Sonarqube') {
-        //     environment {
-        //         scannerHome = tool 'sonar_scanner'
-        //     }
-        //     steps {
-        //         withSonarQubeEnv('sonarqube') {
-        //             sh "${scannerHome}/bin/sonar-scanner"
-        //         }
-        //         timeout(time: 10, unit: 'MINUTES') {
-        //             waitForQualityGate abortPipeline: true
-        //         }
-        //     }
-        // }
+     stage('Code Quality Check via SonarQube') {
+   steps {
+       script {
+       def scannerHome = tool 'sonarqube';
+           withSonarQubeEnv("sonarqube-container") {
+           sh "${tool("sonarqube")}/bin/sonar-scanner \
+           -Dsonar.projectKey=test-node-js \
+           -Dsonar.sources=. \
+           -Dsonar.css.node=. \
+           -Dsonar.host.url=http://http://192.168.43.191:9000 \
+           -Dsonar.login=a7aebfad2b79f5803d11a8851fb8ea3cc68f97aa"
+               }
+           }
+       }
+   }
         stage('Test') {
             steps {
                 sh './jenkins/scripts/test.sh'
