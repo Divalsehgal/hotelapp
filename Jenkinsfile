@@ -23,7 +23,7 @@ pipeline {
         // }
 
         stage('SCM') {
-            git 'https://github.com/foo/bar.git'
+            git 'https://github.com/Divalsehgal/hotelapp.git'
         }
         stage('SonarQube analysis') {
             def scannerHome = tool 'SonarScanner 4.0'
