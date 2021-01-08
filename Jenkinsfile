@@ -22,7 +22,7 @@ pipeline {
         //     }
         // }
 
-      stage('Clone sources') {
+        stage('Clone sources') {
             steps {
                 git url: 'https://github.com/Divalsehgal/hotelapp.git'
             }
@@ -30,11 +30,11 @@ pipeline {
         stage('SonarQube analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    sh "./gradlew sonarqube"
+                    sh './gradlew sonarqube'
                 }
             }
         }
-        stage("Quality gate") {
+        stage('Quality gate') {
             steps {
                 waitForQualityGate abortPipeline: true
             }
@@ -53,5 +53,5 @@ pipeline {
                 sh './jenkins/scripts/kill.sh'
             }
         }
-    }
 }
+
