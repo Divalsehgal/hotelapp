@@ -4,15 +4,13 @@ import Banner from "../components/Banner";
 import { Link } from "react-router-dom";
 import Service from "../components/Service";
 import FeaturedRooms from "../components/FeaturedRooms";
-import StyledHero from "../components/StyledHero";
 import config from "../config/keys"
 const Home = () => {
   const stage=config.REACT_APP_STAGE
-  console.log(stage)
+  console.log(stage,"=>",process.env.REACT_APP_STAGE)
 
   return (
     <>
-      {stage}
       <Hero hero="defaultHero">
         <Banner
           title="Luxurious Rooms"

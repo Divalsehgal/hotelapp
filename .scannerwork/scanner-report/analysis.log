@@ -19,7 +19,7 @@ SonarQube plugins:
   - SonarVB 7.17.0.9346 (vbnet)
 Global server settings:
   - sonar.core.id=BF41A1F2-AW5vHBQkZGa-3zsxQXcq
-  - sonar.core.startTime=2020-12-23T09:45:28+0530
+  - sonar.core.startTime=2021-01-08T13:35:47+0530
 Project server settings:
 Project scanner properties:
   - sonar.dynamicAnalysis=reuseReports
@@ -28,8 +28,8 @@ Project scanner properties:
   - sonar.javascript.lcov.reportPaths=coverage/lcov.info
   - sonar.log.level=DEBUG
   - sonar.projectBaseDir=/home/nineleaps/ReactProjects/hotelreserve
-  - sonar.projectKey=admin
-  - sonar.projectName=admin
+  - sonar.projectKey=HotelApp
+  - sonar.projectName=HotelApp
   - sonar.projectVersion=1.0
   - sonar.scanner.app=ScannerCli
   - sonar.scanner.appVersion=4.2.0.1873
