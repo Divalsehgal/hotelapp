@@ -21,16 +21,17 @@ pipeline {
             }
         }
         stage('build & SonarQube analysis') {
-            agent any
-            steps {
-                script {
-                    scannerHome = tool 'SonarScanner'
-                }
+            def scannerHome = tool 'SonarScanner'
+                //agent any
+                // steps {
+                // script {
+                //     scannerHome = tool 'SonarScanner'
+                // }
                 withSonarQubeEnv('SonarQube') {
                     echo "${scannerHome}"
                     sh "${scannerHome}/bin/sonar-scanner"
-                }
-            }
+           // }
+           }
         }
 
         stage('Quality gate') {
