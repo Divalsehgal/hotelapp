@@ -20,19 +20,39 @@ pipeline {
                 git url: 'https://github.com/Divalsehgal/hotelapp.git'
             }
         }
+
         stage('Sonarqube') {
             environment {
-                scannerHome = tool 'SonarScanner4.2'
+                scannerHome = tool 'SonarQubeScanner'
             }
             steps {
-                withSonarQubeEnv('SonarQube') {
-                    sh "${scannerHome}"
+                withSonarQubeEnv('sonarqube') {
+                    sh "${scannerHome}/bin/sonar-scanner"
                 }
                 timeout(time: 10, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: true
                 }
             }
         }
+        // stage('build & SonarQube analysis') {
+        //     agent any
+        //     steps {
+        //         script {
+        //             scannerHome = tool 'SonarScanner4.2'
+        //         }
+        //         withSonarQubeEnv('SonarQube') {
+        //             echo "${scannerHome}"
+        //             sh "${scannerHome}"
+        //         }
+        //     }
+        // }
+
+        // stage('Quality gate') {
+        //     steps {
+        //         waitForQualityGate abortPipeline: true
+        //     }
+        // }
+
         stage('Test') {
             steps {
                 sh './jenkins/scripts/test.sh'
