@@ -14,13 +14,13 @@ pipeline {
                 sh 'npm install'
             }
         }
-        stage('Code Quality Check via SonarQube') {
-            steps {
-                script {
-                    sh '~/Downloads/sonar-scanner-4.2.0.1873-linux/bin/sonar-scanner'
-                }
-            }
-        }
+        // stage('Code Quality Check via SonarQube') {
+        //     steps {
+        //         script {
+        //             sh '~/Downloads/sonar-scanner-4.2.0.1873-linux/bin/sonar-scanner'
+        //         }
+        //     }
+        // }
         stage('Test') {
             steps {
                 sh './jenkins/scripts/test.sh'
