@@ -23,7 +23,7 @@ pipeline {
         stage('build & SonarQube analysis') {
             agent any
             steps {
-                withSonarQubeEnv('http://192.168.43.191:8383/sonarqube-webhook/') {
+                withSonarQubeEnv('SonarQube') {
                     sh 'mvn clean package sonar:sonar'
                 }
             }
