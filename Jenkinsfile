@@ -14,13 +14,6 @@ pipeline {
                 sh 'npm install'
             }
         }
-        // stage('Code Quality Check via SonarQube') {
-        //     steps {
-        //         script {
-        //             sh '~/Downloads/sonar-scanner-4.2.0.1873-linux/bin/sonar-scanner'
-        //         }
-        //     }
-        // }
 
         stage('Clone sources') {
             steps {
@@ -39,7 +32,6 @@ pipeline {
                 waitForQualityGate abortPipeline: true
             }
         }
-    }
 
         stage('Test') {
             steps {
@@ -53,5 +45,5 @@ pipeline {
                 sh './jenkins/scripts/kill.sh'
             }
         }
+    }
 }
-
