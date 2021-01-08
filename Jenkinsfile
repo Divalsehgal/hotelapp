@@ -24,7 +24,7 @@ pipeline {
             agent any
             steps {
                 script {
-                    scannerHome = tool 'SonarScanner4'
+                    scannerHome = tool 'SonarScanner4.2'
                 }
                 withSonarQubeEnv('SonarQube') {
                     echo "${scannerHome}"
