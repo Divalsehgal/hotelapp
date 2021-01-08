@@ -3,6 +3,9 @@
     "rules": {
         "CompileStatic": {
             "enabled": false
+        },
+        "NglParseError": {
+            "enabled": false
         }
     }
 }
