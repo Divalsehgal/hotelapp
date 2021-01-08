@@ -25,7 +25,7 @@ pipeline {
             steps {
                 /* groovylint-disable-next-line NoDef */
                 def scannerHome = tool 'SonarScanner4'
-                withSonarQubeEnv('My SonarQube Server') {
+                withSonarQubeEnv('http://192.168.43.191:9000') {
                     sh "${scannerHome}/bin/sonar-scanner"
                 }
             }
