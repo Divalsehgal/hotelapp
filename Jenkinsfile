@@ -14,19 +14,19 @@ pipeline {
                 sh 'npm install'
             }
         }
-        stage('Sonarqube') {
-            environment {
-                scannerHome = tool 'sonar_scanner'
-            }
-            steps {
-                withSonarQubeEnv('sonarqube') {
-                    sh "${scannerHome}/bin/sonar-scanner"
-                }
-                timeout(time: 10, unit: 'MINUTES') {
-                    waitForQualityGate abortPipeline: true
-                }
-            }
-        }
+        // stage('Sonarqube') {
+        //     environment {
+        //         scannerHome = tool 'sonar_scanner'
+        //     }
+        //     steps {
+        //         withSonarQubeEnv('sonarqube') {
+        //             sh "${scannerHome}/bin/sonar-scanner"
+        //         }
+        //         timeout(time: 10, unit: 'MINUTES') {
+        //             waitForQualityGate abortPipeline: true
+        //         }
+        //     }
+        // }
         stage('Test') {
             steps {
                 sh './jenkins/scripts/test.sh'
