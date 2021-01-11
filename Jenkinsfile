@@ -57,15 +57,12 @@ pipeline {
         stage('Deployment') {
             parallel {
                 stage('Production') {
-                    // when {
-                    //     branch 'master'
-                    // }
+               
                     steps {
-                        withAWS(region:'Asia Pacific (Mumbai) ap-south-1', credentials:'AKIAZQ3SUTKIGRFUC5GQ') {
-                            s3Delete(bucket: 'hotelappdemo', path:'./build')
-                            s3Upload(bucket: 'hotelappdemo', workingDir:'build', includePathPattern:'./build')
+                        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'JenkinsUser', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+                            sh  "aws s3 ls"
+                            sh  "aws s3 cp ./build hotelappdemo"
                         }
-                        mail(subject: 'Production Build', body: 'New Deployment to Production', to: 'sehgaldiva@gmail.com')
                     }
                 }
             }
