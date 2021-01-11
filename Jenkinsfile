@@ -56,22 +56,10 @@ pipeline {
 
         stage('Deployment') {
             parallel {
-                stage('Staging') {
-                    when {
-                        branch 'staging'
-                    }
-                    steps {
-                        withAWS(region:'Asia Pacific (Mumbai) ap-south-1', credentials:'AKIAZQ3SUTKIGRFUC5GQ') {
-                            s3Delete(bucket: 'hotelappdemo', path:'./build')
-                            s3Upload(bucket: 'hotelappdemo', workingDir:'build', includePathPattern:'./build')
-                        }
-                        mail(subject: 'Staging Build', body: 'New Deployment to Staging', to: 'sehgaldiva@gmail.com')
-                    }
-                }
                 stage('Production') {
-                    when {
-                        branch 'master'
-                    }
+                    // when {
+                    //     branch 'master'
+                    // }
                     steps {
                         withAWS(region:'Asia Pacific (Mumbai) ap-south-1', credentials:'AKIAZQ3SUTKIGRFUC5GQ') {
                             s3Delete(bucket: 'hotelappdemo', path:'./build')
