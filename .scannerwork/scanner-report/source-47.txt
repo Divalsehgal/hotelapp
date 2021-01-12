@@ -14,60 +14,60 @@ Enzyme.configure({
     adapter: new Adapter(),
   });
 
-describe("Banner", () => {
-  describe("Banner test", () => {
+// describe("Banner", () => {
+//   describe("Banner test", () => {
+//     let wrapper;
+//     beforeEach(() => {
+//       const props = {
+      
+//       };
+//       wrapper = shallow(<Banner {...props} />);
+//     });
+
+//     it("should render banner", () => {
+//       const bannerComponent = findByTestAtrr(wrapper, "banner");
+//       expect(bannerComponent.length).toBe(1);
+//     });
+//   });
+// });
+
+
+describe("Hero", () => {
+  describe("Hero test", () => {
     let wrapper;
     beforeEach(() => {
       const props = {
       
       };
-      wrapper = shallow(<Banner {...props} />);
+      wrapper = shallow(<Hero {...props} />);
     });
 
-    it("should render banner", () => {
-      const bannerComponent = findByTestAtrr(wrapper, "banner");
+    it("should render Hero", () => {
+      const bannerComponent = findByTestAtrr(wrapper, "hero");
       expect(bannerComponent.length).toBe(1);
     });
   });
 });
 
 
-// describe("Hero", () => {
-//   describe("Hero test", () => {
-//     let wrapper;
-//     beforeEach(() => {
-//       const props = {
+
+
+describe("Hero", () => {
+  describe("Hero test", () => {
+    let wrapper;
+    beforeEach(() => {
+      const props = {
       
-//       };
-//       wrapper = shallow(<Hero {...props} />);
-//     });
+      };
+      wrapper = shallow(<Loading {...props} />);
+    });
 
-//     it("should render Hero", () => {
-//       const bannerComponent = findByTestAtrr(wrapper, "hero");
-//       expect(bannerComponent.length).toBe(1);
-//     });
-//   });
-// });
-
-
-
-
-// describe("Hero", () => {
-//   describe("Hero test", () => {
-//     let wrapper;
-//     beforeEach(() => {
-//       const props = {
-      
-//       };
-//       wrapper = shallow(<Loading {...props} />);
-//     });
-
-//     it("should render Hero", () => {
-//       const bannerComponent = findByTestAtrr(wrapper, "loading");
-//       expect(bannerComponent.length).toBe(1);
-//     });
-//   });
-// });
+    it("should render Hero", () => {
+      const bannerComponent = findByTestAtrr(wrapper, "loading");
+      expect(bannerComponent.length).toBe(1);
+    });
+  });
+});
 
 
 
