@@ -7,6 +7,7 @@ import Enzyme from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import Banner from "../Banner";
 import Hero from "../Hero";
+import Loading from "../Loading";
 
 Enzyme.configure({
     adapter: new Adapter(),
@@ -46,3 +47,25 @@ describe("Hero", () => {
     });
   });
 });
+
+
+
+
+describe("Hero", () => {
+  describe("Hero test", () => {
+    let wrapper;
+    beforeEach(() => {
+      const props = {
+      
+      };
+      wrapper = shallow(<Loading {...props} />);
+    });
+
+    it("should render Hero", () => {
+      const bannerComponent = findByTestAtrr(wrapper, "loading");
+      expect(bannerComponent.length).toBe(1);
+    });
+  });
+});
+
+
