@@ -12,6 +12,7 @@ const Home = () => {
   return (
     <>
       <Hero hero="defaultHero">
+        dival
         <Banner
           title="Luxurious Rooms"
           subtitle="Deluxe rooms starting at Rs.1500"
