@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function Room({ room }) {
   const { name, slug, images, price } = room;
   return (
-    <article className="room">
+    <article className="room" data-test="room">
       <div className="img-container">
         <img src={images[0] || defaultImg} alt="" />
         <div className="price-top">

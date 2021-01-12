@@ -50,3 +50,8 @@ pipeline {
         }
     }
 }
+
+
+
+//cloud front with ssl https://d3gby788punlh6.cloudfront.net/
+//static version  http://hotelappdemo.s3-website.ap-south-1.amazonaws.com/

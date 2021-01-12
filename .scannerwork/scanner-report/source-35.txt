@@ -37,7 +37,7 @@ export default function RoomsFilter({ rooms }) {
   });
 
   return (
-    <section className="filter-container">
+    <section className="filter-container" data-test="roomsfilter">
       <Title title="search rooms" />
       <form className="filter-form">
         <div className="form-group">
