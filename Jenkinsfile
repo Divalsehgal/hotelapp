@@ -1,14 +1,6 @@
 pipeline {
     agent any
-    // agent {
-    //     docker {
-    //         image 'node:12-alpine'
-    //         args '-p 3000:3000'
-    //     }
-    // }
-    // environment {
-    //     CI = 'true'
-    // }
+ 
     stages {
         stage('Build') {
             steps {
@@ -16,11 +8,11 @@ pipeline {
             }
         }
 
-        stage('Clone sources') {
-            steps {
-                git url: 'https://github.com/Divalsehgal/hotelapp.git'
-            }
-        }
+        // stage('Clone sources') {
+        //     steps {
+        //         git url: 'https://github.com/Divalsehgal/hotelapp.git'
+        //     }
+        // }
         stage('build & SonarQube analysis') {
             agent any
             steps {
@@ -57,19 +49,18 @@ pipeline {
         stage('Deployment') {
             parallel {
                 stage('Production') {
-               
                     steps {
                         withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'JenkinsUser', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-                             sh './jenkins/scripts/deliver.sh'
+                            sh './jenkins/scripts/deliver.sh'
 
-                            sh  "aws s3 ls"
+                            sh  'aws s3 ls'
                             echo pwd
-                            sh  "aws s3 sync build/ s3://hotelappdemo"
+                            sh  'aws s3 sync build/ s3://hotelappdemo'
                         }
                     }
                 }
+
             }
         }
     }
 }
-
