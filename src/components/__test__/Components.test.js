@@ -73,20 +73,20 @@ describe("Hero", () => {
 
 
 
-describe("Hero", () => {
-  describe("Hero test", () => {
-    let wrapper;
-    beforeEach(() => {
-      const props = {
+// describe("Hero", () => {
+//   describe("Hero test", () => {
+//     let wrapper;
+//     beforeEach(() => {
+//       const props = {
       
-      };
-      wrapper = shallow(<Title {...props} />);
-    });
+//       };
+//       wrapper = shallow(<Title {...props} />);
+//     });
 
-    it("should render Hero", () => {
-      const bannerComponent = findByTestAtrr(wrapper, "title");
-      expect(bannerComponent.length).toBe(1);
-    });
-  });
-});
+//     it("should render Hero", () => {
+//       const bannerComponent = findByTestAtrr(wrapper, "title");
+//       expect(bannerComponent.length).toBe(1);
+//     });
+//   });
+// });
 
