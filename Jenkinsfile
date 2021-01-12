@@ -8,6 +8,12 @@ pipeline {
             }
         }
 
+        stage('Test') {
+            steps {
+                sh './jenkins/scripts/test.sh'
+            }
+        }
+
         stage('build & SonarQube analysis') {
             agent any
             steps {
@@ -24,12 +30,6 @@ pipeline {
         stage('Quality gate') {
             steps {
                 waitForQualityGate abortPipeline: true
-            }
-        }
-
-        stage('Test') {
-            steps {
-                sh './jenkins/scripts/test.sh'
             }
         }
 
