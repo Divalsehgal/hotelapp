@@ -1,42 +1,21 @@
-import React, { Component } from "react";
-import logo from "../images/logo.svg";
-import { FaAlignRight } from "react-icons/fa";
+import React from "react";
+import defaultImg from "../images/room-1.jpeg";
 import { Link } from "react-router-dom";
-export default class Navbar extends Component {
-  state = {
-    isOpen: false,
-  };
-  handleToggle = () => {
-    this.setState({ isOpen: !this.state.isOpen });
-  };
-  render() {
-    return (
-      <nav className="navbar">
-        <div className="nav-center">
-          <div className="nav-header">
-            <Link to="/">
-              <img src={logo} alt="logo" />{" "}
-            </Link>
-            <button
-              onClick={this.handleToggle}
-              type="button"
-              className="nav-btn"
-            >
-              <FaAlignRight className="nav-icon" />
-            </button>
-          </div>
-          <ul
-            className={this.state.isOpen ? "nav-links show-nav" : "nav-links"}
-          >
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/room">Room</Link>
-            </li>
-          </ul>{" "}
+export default function Room({ room }) {
+  const { name, slug, images, price } = room;
+  return (
+    <article className="room" data-test="room">
+      <div className="img-container">
+        <img src={images[0] || defaultImg} alt="" />
+        <div className="price-top">
+          <h6>${price}</h6>
+          <p>per night</p>
         </div>
-      </nav>
-    );
-  }
+        <Link to={{pathname:`/rooms/${slug}`,state:{slug}}} className="btn-primary room-link">
+          Features
+        </Link>
+      </div>
+      <p className="room-info">{name}</p>
+    </article>
+  );
 }

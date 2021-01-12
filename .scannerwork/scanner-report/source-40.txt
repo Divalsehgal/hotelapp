@@ -1,26 +1,42 @@
 import React, { Component } from "react";
-import { RoomContext } from "../context";
-import Loading from "./Loading";
-import Room from "./Room";
-import Title from "./Title";
-export default class FeaturedRooms extends Component {
-  static contextType = RoomContext;
+import logo from "../images/logo.svg";
+import { FaAlignRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
+export default class Navbar extends Component {
+  state = {
+    isOpen: false,
+  };
+  handleToggle = () => {
+    this.setState({ isOpen: !this.state.isOpen });
+  };
   render() {
-    let { loading, featuredRooms: rooms } = this.context;
-
-    rooms = rooms.map(room => {
-      
-      return <Room key={room.id} room={room} />;
-    });
-
     return (
-      
-      <section className="featured-rooms">
-        <Title title="featured rooms" />
-        <div className="featured-rooms-center">
-          {loading ? <Loading /> : rooms}
+      <nav className="navbar">
+        <div className="nav-center">
+          <div className="nav-header">
+            <Link to="/">
+              <img src={logo} alt="logo" />{" "}
+            </Link>
+            <button
+              onClick={this.handleToggle}
+              type="button"
+              className="nav-btn"
+            >
+              <FaAlignRight className="nav-icon" />
+            </button>
+          </div>
+          <ul
+            className={this.state.isOpen ? "nav-links show-nav" : "nav-links"}
+          >
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/room">Room</Link>
+            </li>
+          </ul>{" "}
         </div>
-      </section>
+      </nav>
     );
   }
 }

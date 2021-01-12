@@ -1,1 +1,1 @@
-* 2jsXhrsrc/components/Room.js
+* 2jsXhrsrc/components/Loading.js

@@ -1,1 +1,1 @@
-( 2jsXhrsrc/components/FeaturedRooms.js
+( 2jsX+hrsrc/components/Navbar.js

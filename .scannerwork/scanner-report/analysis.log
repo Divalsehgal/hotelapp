@@ -22,11 +22,11 @@ Global server settings:
   - sonar.core.startTime=2021-01-10T19:14:17+0530
 Project server settings:
 Project scanner properties:
-  - sonar.coverage.exclusions=**/setupTests.js,**/index.js
-  - sonar.exclusions=**/node_modules/**,**/*.spec.ts,**/coverage/**
+  - sonar.dynamicAnalysis=reuseReports
+  - sonar.exclusions=node_modules/*,Docker*,init_container.sh,**/*.test.*,client /coverage/lcov.info,coverage/lcov-report/*,**/src/setupTests.js**
   - sonar.host.url=http://localhost:9000
-  - sonar.javascript.file.suffixes=.js,.jsx
   - sonar.javascript.lcov.reportPaths=coverage/lcov.info
+  - sonar.log.level=DEBUG
   - sonar.projectBaseDir=/home/nineleaps/ReactProjects/hotelreserve
   - sonar.projectKey=HotelApp
   - sonar.projectName=HotelApp
@@ -35,8 +35,7 @@ Project scanner properties:
   - sonar.scanner.appVersion=4.2.0.1873
   - sonar.sourceEncoding=UTF-8
   - sonar.sources=src
-  - sonar.test.inclusions=**/*.spec.ts,**/*.test.js,**/*.test.jsx
-  - sonar.ts.lcov.reportpath=test-results/coverage/coverage.lcov
-  - sonar.ts.tslintconfigpath=tslint.json
+  - sonar.test.inclusions=**/*test*
+  - sonar.tests=src
   - sonar.verbose=true
   - sonar.working.directory=/home/nineleaps/ReactProjects/hotelreserve/.scannerwork
