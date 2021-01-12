@@ -14,22 +14,22 @@ Enzyme.configure({
     adapter: new Adapter(),
   });
 
-describe("Banner", () => {
-  describe("Banner test", () => {
-    let wrapper;
-    beforeEach(() => {
-      const props = {
+// describe("Banner", () => {
+//   describe("Banner test", () => {
+//     let wrapper;
+//     beforeEach(() => {
+//       const props = {
       
-      };
-      wrapper = shallow(<Banner {...props} />);
-    });
+//       };
+//       wrapper = shallow(<Banner {...props} />);
+//     });
 
-    it("should render banner", () => {
-      const bannerComponent = findByTestAtrr(wrapper, "banner");
-      expect(bannerComponent.length).toBe(1);
-    });
-  });
-});
+//     it("should render banner", () => {
+//       const bannerComponent = findByTestAtrr(wrapper, "banner");
+//       expect(bannerComponent.length).toBe(1);
+//     });
+//   });
+// });
 
 
 describe("Hero", () => {
