@@ -1,1 +1,1 @@
-, 2jsXhrsrc/components/StyledHero.js
+, 2jsXhrsrc/components/RoomsList.js

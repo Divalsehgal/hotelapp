@@ -1,1 +1,1 @@
-% 2jsX/hr src/components/RoomsContainer.js
+% 2jsXhrsrc/components/Banner.js
