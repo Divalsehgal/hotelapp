@@ -60,6 +60,8 @@ pipeline {
                
                     steps {
                         withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'JenkinsUser', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+                             sh './jenkins/scripts/deliver.sh'
+
                             sh  "aws s3 ls"
                             echo pwd
                             sh  "aws s3 sync build/ s3://hotelappdemo"
