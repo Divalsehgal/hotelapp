@@ -6,17 +6,22 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.6.0",
+    "@types/jest": "^29.5.3",
+    "@types/node": "^20.4.2",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
     "npm-check": "^5.9.2",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-icons": "^4.1.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.1",
     "snyk": "^1.437.3",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "typescript": "^5.1.6"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom --coverage --watchAll=false",
     "eject": "react-scripts eject",
@@ -38,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-router-dom": "^5.3.3",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5"
   }
