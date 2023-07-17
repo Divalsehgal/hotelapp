@@ -1,0 +1,3 @@
+interface RoomProps{
+    room:any
+  }

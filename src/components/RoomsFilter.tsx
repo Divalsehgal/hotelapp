@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import { RoomContext } from "../context";
 import Title from "./Title";
-const getUnique = (items, value) => {
+
+const getUnique = (items, value):any => {
   return [...new Set(items.map((item) => item[value]))];
 };
-export default function RoomsFilter({ rooms }) {
+
+export default function RoomsFilter({ rooms }:any) {
   const context = useContext(RoomContext);
   const {
     handleChange,
@@ -18,7 +20,7 @@ export default function RoomsFilter({ rooms }) {
     breakfast,
     pets,
   } = context;
-  let types = getUnique(rooms, "type");
+  let types = getUnique(rooms, "type"); 
   let people = getUnique(rooms, "capacity");
   types = ["all", ...types];
   types = types.map((item, index) => {

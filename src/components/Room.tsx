@@ -1,7 +1,8 @@
 import React from "react";
 import defaultImg from "../images/room-1.jpeg";
 import { Link } from "react-router-dom";
-export default function Room({ room }) {
+
+export default function Room({ room }:RoomProps) {
   const { name, slug, images, price } = room;
   return (
     <article className="room" data-test="room">
