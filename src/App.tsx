@@ -11,12 +11,12 @@ import NavBar from "./components/Navbar";
 function App() {
   return (
     <>
-      <NavBar />
       <BrowserRouter>
+      <NavBar />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/room/" component={Rooms} />
-        <Route exact path="/rooms/:slug" component={SingleRoom} />
+        <Route  path="/room/" component={Rooms} />
+        <Route  path="/rooms/:slug" component={SingleRoom} />
 
         <Route component={Error} />
 

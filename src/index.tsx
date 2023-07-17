@@ -8,9 +8,7 @@ import * as serviceWorker from "./serviceWorker";
 const root = createRoot(document.getElementById("root"));
 root.render(
   <RoomProvider>
-    <BrowserRouter>
       <App />
-    </BrowserRouter>
   </RoomProvider>
 );
 

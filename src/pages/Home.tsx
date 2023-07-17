@@ -7,7 +7,6 @@ import FeaturedRooms from "../components/FeaturedRooms";
 import config from "../config/keys"
 const Home = () => {
   const stage = config.REACT_APP_STAGE;
-  console.log(stage, "=>", process.env.REACT_APP_STAGE);
 
   return (
     <>
