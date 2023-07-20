@@ -7,7 +7,6 @@ import StyledHero from "../components/StyledHero";
 export default class SingleRoom extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
     this.state = {
       slug: this.props.match.params.slug,
       defaultBcg,
@@ -18,7 +17,6 @@ export default class SingleRoom extends Component {
   render() {
     const { getRoom } = this.context;
     const room = getRoom(this.state.slug);
-    console.log(this.state.slug, room);
     if (!room) {
       return (
         <div className="error">

@@ -480,11 +480,27 @@ h6 {
   letter-spacing: var(--mainSpacing);
   margin-bottom: 0.5rem;
 }
+
+.form-group label.size {
+  white-space: pre;
+}
+
+.form-group input[type="range"] {
+  vertical-align: middle;
+}
+
+.form-group:nth-child(5) {
+  justify-content: space-between;
+  display: flex;
+  gap: 1rem;
+}
+
 .form-control {
   width: 100%;
   background: transparent;
   font-size: 1rem;
 }
+
 .size-inputs {
   display: flex;
 }

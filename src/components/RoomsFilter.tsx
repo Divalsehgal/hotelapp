@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import { RoomContext } from "../context";
 import Title from "./Title";
 
-const getUnique = (items, value):any => {
+const getUnique = (items, value): any => {
   return [...new Set(items.map((item) => item[value]))];
 };
 
-export default function RoomsFilter({ rooms }:any) {
+export default function RoomsFilter({ rooms }: any) {
   const context = useContext(RoomContext);
   const {
     handleChange,
@@ -19,8 +19,9 @@ export default function RoomsFilter({ rooms }:any) {
     maxPrice,
     breakfast,
     pets,
+    size,
   } = context;
-  let types = getUnique(rooms, "type"); 
+  let types = getUnique(rooms, "type");
   let people = getUnique(rooms, "capacity");
   types = ["all", ...types];
   types = types.map((item, index) => {
@@ -37,6 +38,9 @@ export default function RoomsFilter({ rooms }:any) {
       </option>
     );
   });
+  const handleChangeActivity = (e) => {
+    handleChange(e);
+  };
 
   return (
     <section className="filter-container" data-test="roomsfilter">
@@ -49,7 +53,7 @@ export default function RoomsFilter({ rooms }:any) {
             name="type"
             id="type"
             value={type}
-            onChange={handleChange}
+            onChange={handleChangeActivity}
           >
             {types}
           </select>
@@ -61,13 +65,13 @@ export default function RoomsFilter({ rooms }:any) {
             name="capacity"
             id="capacity"
             value={capacity}
-            onChange={handleChange}
+            onChange={handleChangeActivity}
           >
             {people}
           </select>
         </div>
         <div className="form-group">
-          <label htmlFor="price">room price ${price}</label>
+          <label htmlFor="price" className="price">room price ${price}</label>
           <input
             type="range"
             name="price"
@@ -75,28 +79,22 @@ export default function RoomsFilter({ rooms }:any) {
             max={maxPrice}
             id="price"
             value={price}
-            onChange={handleChange}
+            onChange={handleChangeActivity}
             className="form-control"
           />
         </div>
         <div className="form-group">
-          <label htmlFor="price">room size </label>
-          <div className="size-inputs">
-            <input
-              type="number"
-              name="minSize"
-              value={minSize}
-              onChange={handleChange}
-              className="size-input"
-            />
-            <input
-              type="number"
-              name="maxSize"
-              value={maxSize}
-              onChange={handleChange}
-              className="size-input"
-            />
-          </div>
+          <label className="size" htmlFor="size">room size {size} sqft</label>
+          <input
+            type="range"
+            name="size"
+            min={minSize}
+            max={maxSize}
+            id="size"
+            value={size}
+            onChange={handleChangeActivity}
+            className="form-control"
+          />
         </div>
         <div className="form-group">
           <div className="single-extra">
@@ -105,7 +103,7 @@ export default function RoomsFilter({ rooms }:any) {
               name="breakfast"
               id="breakfast"
               checked={breakfast}
-              onChange={handleChange}
+              onChange={handleChangeActivity}
             />
             <label htmlFor="breakfast">breakfast</label>
           </div>
@@ -114,12 +112,11 @@ export default function RoomsFilter({ rooms }:any) {
               type="checkbox"
               name="pets"
               checked={pets}
-              onChange={handleChange}
+              onChange={handleChangeActivity}
             />
             <label htmlFor="breakfast">pets</label>
           </div>
         </div>
-        
       </form>
     </section>
   );

@@ -1,10 +1,7 @@
 import React from 'react'
 import loadingGif from "../images/gif/loading-arrow.gif"
 
-interface LoadingProps{
-
-}
-export default function Loading({}:LoadingProps) {
+export default function Loading() {
 
     return (
         <div className="loading" data-test="loading">

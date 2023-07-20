@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import logo from "../images/logo.svg";
 import { FaAlignRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
-interface NavBarProps {}
-const NavBar = ({}: NavBarProps) => {
+const NavBar = () => {
   const [open, setIsOpen] = useState(false);
 
   const handleToggle = () => {
