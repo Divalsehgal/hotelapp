@@ -5,11 +5,12 @@
 /.pnp
 .pnp.js
 
+# testing
+/coverage
 
-node_modules/
-.next/
-.swc/
-.*.env
+# next.js
+/.next/
+/out/
 
 # testing
 /coverage
