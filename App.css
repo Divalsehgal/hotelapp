@@ -313,6 +313,7 @@ h6 {
   width: 100%;
   display: block;
   transition: var(--mainTransition);
+  object-fit: contain;
 }
 .price-top {
   position: absolute;

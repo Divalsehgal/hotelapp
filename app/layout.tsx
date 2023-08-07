@@ -2,7 +2,7 @@ import NavBar from "../components/Navbar";
 import "../App.css";
 import { RoomProvider } from "../context";
 export const metadata = {
-  title: "Ai-prompt",
+  title: "hotel-booking",
   Description: "collection AI prompts",
 };
 const RootLayout = ({ children }: any) => {
